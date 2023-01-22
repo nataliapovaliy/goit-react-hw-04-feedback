@@ -12,24 +12,21 @@ export default class App extends Component {
     bad: 0
   }
 
-  handleClick = (event) => {
-    const stateItem = event.target;
+  handleClick = event => {
+    const name = event.target.name;
     this.setState(prevState => {
-      return ({ [stateItem]: prevState[stateItem] += 1 });
-    })
+      return { [name]: (prevState[name] += 1) };
+    });
   }
 
   // handleClickGood = () => {
   //       this.setState((prevState) => ({
-  //           good: prevState.good + 1
-  //       }))
+  //           good: prevState.good + 1 }))
   //   }
-    
   // handleClickNeutral = () => {
   //       this.setState((prevState) => ({neutral: prevState.neutral + 1}))
   //   }
-    
-  // handleClickBad = () => {
+    // handleClickBad = () => {
   //       this.setState((prevState) => ({bad: prevState.bad + 1}))
   //   }
 
@@ -50,7 +47,7 @@ export default class App extends Component {
           title='Please leave feedback' />
         
         <FeedbackOptions
-          options={Object.keys(this.state)}
+          options={['good', 'neutral', 'bad']}
           onLeaveFeedback={this.handleClick} />
         
         <Section
@@ -60,8 +57,8 @@ export default class App extends Component {
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
-          total={this.countTotalFeedback}
-          positivePercentage={this.countPositiveFeedbackPercentage}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
         />
         </div>
         
