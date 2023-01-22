@@ -3,7 +3,8 @@ import React, {Component} from "react";
 import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import css from './FeedBack/FeedBack.module.css'
+import Notification from './Notification/Notification';
+import css from './FeedBack/FeedBack.module.css';
 
 export default class App extends Component {
   state = {
@@ -26,7 +27,7 @@ export default class App extends Component {
   // handleClickNeutral = () => {
   //       this.setState((prevState) => ({neutral: prevState.neutral + 1}))
   //   }
-    // handleClickBad = () => {
+  // handleClickBad = () => {
   //       this.setState((prevState) => ({bad: prevState.bad + 1}))
   //   }
 
@@ -53,16 +54,18 @@ export default class App extends Component {
         <Section
           title='Statistics' />
         
-        <Statistics
+        {this.countTotalFeedback() ? (
+          <Statistics
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
           total={this.countTotalFeedback()}
           positivePercentage={this.countPositiveFeedbackPercentage()}
         />
+        ) : (<Notification message="There is no feedback" />)
+        }
         </div>
         
       )
 }
 }
-
