@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-// import FeedBack from './FeedBack/FeedBack';
 import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
@@ -19,17 +18,6 @@ export default class App extends Component {
       return { [name]: (prevState[name] += 1) };
     });
   }
-
-  // handleClickGood = () => {
-  //       this.setState((prevState) => ({
-  //           good: prevState.good + 1 }))
-  //   }
-  // handleClickNeutral = () => {
-  //       this.setState((prevState) => ({neutral: prevState.neutral + 1}))
-  //   }
-  // handleClickBad = () => {
-  //       this.setState((prevState) => ({bad: prevState.bad + 1}))
-  //   }
 
   countTotalFeedback = () => {
         const { good, neutral, bad } = this.state;
