@@ -12,11 +12,19 @@ const App = () => {
   const [bad, setBad] = useState(0);
 
   const handleClick = event => {
-    const name = event.target.name;
-    this.setState(prevState => {
+    const [name, setName] = event.target.name;
+
+    setName(prevState => {
       return { [name]: (prevState[name] += 1) };
     });
   }
+
+  //   const handleClick = event => {
+  //   const name = event.target.name;
+  //   this.setState(prevState => {
+  //     return { [name]: (prevState[name] += 1) };
+  //   });
+  // }
 
   function countTotalFeedback () {
         return (good + neutral + bad);
