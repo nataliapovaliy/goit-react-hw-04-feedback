@@ -11,13 +11,12 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handleClick = event => {
-    const [name, setName] = event.target.name;
-
-    setName(prevState => {
-      return { [name]: (prevState[name] += 1) };
-    });
-  }
+  // const handleClick = event => {
+  //   const [name, setName] = event.target.name;
+  //   setName(prevState => {
+  //     return { [name]: (prevState[name] += 1) };
+  //   });
+  // }
 
   //   const handleClick = event => {
   //   const name = event.target.name;
@@ -26,6 +25,15 @@ const App = () => {
   //   });
   // }
 
+  const handleClickGood = () => {
+      setGood(good + 1)
+    }
+  const handleClickNeutral = () => {
+        setNeutral(neutral + 1)
+    }
+  const handleClickBad = () => {
+        setBad(bad + 1)
+    }
   function countTotalFeedback () {
         return (good + neutral + bad);
   }
@@ -41,8 +49,11 @@ const App = () => {
           title='Please leave feedback' />
         
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
-          onLeaveFeedback={handleClick} />
+          options={{good, neutral, bad}}
+          handleClickGood = { handleClickGood }
+          handleClickNeutral={handleClickNeutral}
+          handleClickBad ={handleClickBad}
+          />
         
         <Section
           title='Statistics' />
