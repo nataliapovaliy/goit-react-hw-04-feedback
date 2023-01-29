@@ -42,9 +42,9 @@ const App = () => {
         
         {countTotalFeedback() ? (
           <Statistics
-          good={setGood}
-          neutral={setNeutral}
-          bad={setBad}
+          good={good}
+          neutral={neutral}
+          bad={bad}
           total={countTotalFeedback()}
           positivePercentage={countPositiveFeedbackPercentage()}
         />
