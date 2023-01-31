@@ -12,9 +12,9 @@ const App = () => {
 
   const handleClick = event => {
     const name = event.target.name;
-    if (name === 'good') { setGood(good + 1) }
-    if (name === 'neutral') { setNeutral(neutral + 1) }
-    if (name === 'bad') { setBad(bad + 1) }
+    if (name === 'good') { setGood(prev => (prev + 1)) }
+    if (name === 'neutral') { setNeutral(prev => (prev + 1)) }
+    if (name === 'bad') { setBad(prev => (prev + 1)) }
     }
   
   function countTotalFeedback () {
